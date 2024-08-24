@@ -1,0 +1,11 @@
+.frame{
+    width: 500px;
+    height: 500px;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 1rem;
+    box-shadow: 6px 7px 6px 0 #adadad
+}

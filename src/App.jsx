@@ -1,11 +1,9 @@
-import logo from './logo.svg';
 import './App.css';
+import TodoFrame from './component/TodoFrame';
 
 function App() {
   return (
-    <div>
-      <div>투두리스트</div>
-    </div>
+    <TodoFrame/>
   );
 }
 
