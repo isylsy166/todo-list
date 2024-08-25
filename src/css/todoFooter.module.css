@@ -1,0 +1,34 @@
+.frame{
+    width: 500px;
+    height: 70px;
+    background-color: #ffbfbf;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.inputBox{
+    width: 89%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+input[type="text"]{
+    width: 395px;
+    height: 35px;
+    color: #d07a7a;
+    padding: 0px 12px;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 7px;
+}
+
+input::placeholder{
+    color: #d89898;
+}
+
+svg{
+    cursor: pointer;
+}

@@ -1,0 +1,46 @@
+.itemBox{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.checkbox{
+    flex-shrink: 0;
+    margin: 0.3rem;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 0.1rem solid #bfbfbf;
+    border-radius: 0.3rem;
+    cursor: pointer;
+}
+
+.checkbox:checked{
+    border: none;
+    background-image: url('/public/check_white.png');
+    background-position: center center;
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-color: #ffbfbf;
+    animation: checked 0.5s ease;
+}
+
+.checkbox:checked + .itemText{
+    color: #d9aeae;
+    text-decoration: line-through;
+}
+
+
+.itemText{
+    width: 350px;
+}
+
+.itemBox:hover .deleteIcon {
+    color: #ff9494; /* 마우스를 올렸을 때 색상 */
+  }
+
+.deleteIcon {
+    color: transparent; /* 초기에는 투명 */
+    transition: color 0.5s ease; /* 색상 전환에 애니메이션 적용 */
+}
