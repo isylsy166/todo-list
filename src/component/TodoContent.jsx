@@ -7,11 +7,13 @@ import { StatusContext } from '../context/StatusContext';
 export default function TodoContent() {
 
   const {conStatus} = useContext(StatusContext);
-  const [todos, setTodos] = useState([])
+  const [todos, setTodos] = useState(() => readTodosFromLocalStorage())
   const [filteredTodos, setFilteredTodos] = useState([]);
 
   useEffect(()=>{
-    console.log(conStatus);
+
+    localStorage.setItem('todos', JSON.stringify(todos))
+
     if (conStatus === 'active') {
       setFilteredTodos(todos.filter((todo) => todo.status === 'active'));
     } else if (conStatus === 'completed') {
@@ -19,6 +21,7 @@ export default function TodoContent() {
     } else {
       setFilteredTodos(todos); // 모든 상태를 보여줌
     }
+
   },[ conStatus, todos ])
 
   const handleAdd = (todo) => {
@@ -54,4 +57,9 @@ export default function TodoContent() {
       <TodoFooter onAdd={handleAdd}/>
     </div>
   )
+}
+
+function readTodosFromLocalStorage(){
+  const todos = localStorage.getItem('todos');
+  return todos ? JSON.parse(todos) : [];
 }

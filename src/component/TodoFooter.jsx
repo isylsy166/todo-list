@@ -18,10 +18,22 @@ export default function TodoFooter({onAdd}) {
     setText('');
   }
 
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleSubmit(e); // 엔터키가 눌리면 handleSubmit 호출
+    }
+  };
+
   return (
     <div className={st.frame}>
       <div className={st.inputBox}>
-          <input type='text' placeholder='할 일을 입력하세요' value={text} onChange={(e) => setText(e.target.value)}/>     
+          <input 
+            type='text' 
+            placeholder='할 일을 입력하세요' 
+            value={text} 
+            onChange={(e) => setText(e.target.value)}
+            onKeyPress={handleKeyPress}
+          />     
           <IoMdAdd size={40} color='#ffff' onClick={handleSubmit}/>        
       </div>
     </div>

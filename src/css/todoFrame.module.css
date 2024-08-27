@@ -6,8 +6,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border-radius: 1rem;
-    box-shadow: 6px 7px 6px 0 #adadad
+    border-radius: 1.5rem;
+    box-shadow: 6px 7px 6px 0 var(--color-box-shaodw);
 }
 
 .box{

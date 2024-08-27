@@ -23,22 +23,23 @@
     background-position: center center;
     background-size: 70%;
     background-repeat: no-repeat;
-    background-color: #ffbfbf;
+    background-color: var(--color-bg-checkbox);
     animation: checked 0.5s ease;
 }
 
 .checkbox:checked + .itemText{
-    color: #d9aeae;
+    color: var(--color-checked-text);
     text-decoration: line-through;
 }
 
 
 .itemText{
     width: 350px;
+    color: var(--color-text);
 }
 
 .itemBox:hover .deleteIcon {
-    color: #ff9494; /* 마우스를 올렸을 때 색상 */
+    color: var(--color-selet-menu-text); /* 마우스를 올렸을 때 색상 */
   }
 
 .deleteIcon {

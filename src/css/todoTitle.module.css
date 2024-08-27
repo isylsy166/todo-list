@@ -1,7 +1,7 @@
 .frame{
     width: 500px;
     height: 17%;
-    background-color: #ffbfbf;
+    background-color: var(--color-frame);
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
     display: flex;
@@ -13,7 +13,7 @@
 .iconBox{
     width: 88%;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     margin: 20px 0px;
 }
@@ -42,5 +42,23 @@
 }
 
 .seletedMenu{
-    color: #dc536b !important;
+    color: var(--color-selet-menu-text) !important;
 }
+
+.themeicon{
+    position: absolute;
+    top: 20px;
+    left: 22px;
+    animation: down 1.5s ease-out;
+}
+
+@keyframes down {
+    from {
+      opacity: 0;
+      top: -5rem;
+      left: -2rem;
+    }
+    to {
+      opacity: 1;
+    }
+  }

@@ -1,7 +1,7 @@
 .frame{
     width: 500px;
     height: 70px;
-    background-color: #ffbfbf;
+    background-color: var(--color-frame);
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
     display: flex;
@@ -18,7 +18,7 @@
 input[type="text"]{
     width: 395px;
     height: 35px;
-    color: #d07a7a;
+    color: var(--color-input-text);
     padding: 0px 12px;
     box-sizing: border-box;
     border: none;
@@ -26,7 +26,7 @@ input[type="text"]{
 }
 
 input::placeholder{
-    color: #d89898;
+    color: var(--color-input-text);
 }
 
 svg{
