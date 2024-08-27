@@ -18,3 +18,16 @@
     justify-content: space-between;
     align-items: center;
 }
+
+.menuBar{
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0px 20px;
+}
+
+.icon_setting{
+    margin: 0px 15px;
+    color:var(--color-selet-menu-text)
+}
