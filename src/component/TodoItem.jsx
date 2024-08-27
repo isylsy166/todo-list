@@ -3,7 +3,7 @@ import { RiDeleteBackFill } from 'react-icons/ri'
 
 export default function TodoItem({todo, onUpdate, onDelete}) {
 
-    const {text, status} = todo;
+    const { id, text, status} = todo;
 
     const handleChange = (e) => {
         const status = e.target.checked ? 'completed' : 'active';
@@ -16,12 +16,12 @@ export default function TodoItem({todo, onUpdate, onDelete}) {
     <div className={style.itemBox}>
         <input 
             type='checkbox' 
-            id='checkbox' 
+            id={id} 
             className={style.checkbox} 
             checked={status === 'completed'}
             onChange={handleChange}
         />
-        <label htmlFor='checkbox' className={style.itemText}>{text}</label>
+        <label htmlFor={id} className={style.itemText}>{text}</label>
         <RiDeleteBackFill size={20} className={style.deleteIcon} onClick={handleDelete}/>           
     </div>
     )
