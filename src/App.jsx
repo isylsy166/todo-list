@@ -13,12 +13,12 @@ function App() {
   return (
     <CaptureProvicer>
       <DarkmodeProvider>
-        <TodoFrame>
-          <StatusProvider>
-            <TodoTitle/>
-            <TodoContent/>
-          </StatusProvider>
-        </TodoFrame>
+          <TodoFrame>
+            <StatusProvider>
+              <TodoTitle/>
+              <TodoContent/>
+            </StatusProvider>
+          </TodoFrame>
       </DarkmodeProvider>
     </CaptureProvicer>
   );

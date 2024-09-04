@@ -1,0 +1,80 @@
+.frame{
+    width: 300px;
+    background-color: white;
+    position: absolute;
+    top: 151px;
+    right: 0px;
+    height: 68%;
+    box-sizing: border-box;
+    padding: 0px 25px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    animation: slideIn 0.5s forwards; /* 슬라이드 인 애니메이션 */
+}
+
+.slideOut {
+    animation: slideOut 0.5s forwards;
+  }
+
+@keyframes slideIn {
+    from {
+      transform: translateX(100%); /* 화면 밖에서 시작 */
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0); /* 원래 위치로 슬라이드 */
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideOut {
+    from {
+      transform: translateX(0); /* 원래 위치 */
+      opacity: 1;
+    }
+    to {
+      transform: translateX(100%); /* 화면 밖으로 슬라이드 */
+      opacity: 1;
+    }
+  }
+
+  .frame h2{
+    color: var(--color-input-text);
+  }
+
+  .inputGroupBox{
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--color-input-text);
+  }
+
+  .addGroupIcon{
+    color: var(--color-input-text);
+    font-size: 40px;
+  }
+
+  .groupBox{
+    padding: 10px 10px;
+  }
+
+  .groupWrap{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .groupWrap p{
+    margin: 13px 0px;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--color-input-text);
+  }
+
+  .groupIconWrap{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 41px;
+    font-size: 15px;
+    color: lightgray;
+  }

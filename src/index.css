@@ -8,6 +8,7 @@
   --color-bg-checkbox: #ffbfbf;
   --color-checked-text: #d9aeae;
   --color-input-text: #d07a7a;
+  --color-group-add-btn : #d07a7a;
 }
 
 html.dark{
@@ -20,6 +21,7 @@ html.dark{
   --color-bg-checkbox: #dfb514;
   --color-checked-text: #ddb92f;
   --color-input-text: #262438;
+  --color-group-add-btn : white;
 }
 
 body {

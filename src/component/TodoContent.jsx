@@ -3,16 +3,21 @@ import style from '../css/todoContent.module.css'
 import TodoItem from './TodoItem'
 import TodoFooter from './TodoFooter'
 import { StatusContext } from '../context/StatusContext';
+import { GroupContext } from '../context/GroupContext';
+import { IoMdAdd } from 'react-icons/io';
 
 export default function TodoContent() {
 
   const {conStatus} = useContext(StatusContext);
-  const [todos, setTodos] = useState(() => readTodosFromLocalStorage())
+  const [todos, setTodos] = useState(() => readTodosFromLocalStorage());
   const [filteredTodos, setFilteredTodos] = useState([]);
-
+  const {groups} = useContext(GroupContext);
+  
+  
   useEffect(()=>{
-
+    
     localStorage.setItem('todos', JSON.stringify(todos))
+
 
     if (conStatus === 'active') {
       setFilteredTodos(todos.filter((todo) => todo.status === 'active'));
@@ -37,9 +42,21 @@ export default function TodoContent() {
     setTodos(todos.filter((t) => t.id !== deleted.id))
   }
 
+  const addTodoAtGroup = () => {
+
+  }
+
   return (
     <div className={style.frame}>
       <div className={style.itemBox}>
+        {
+          groups.map((group) => (
+            <div className={style.groupBox}>
+              <h1>{group.text}</h1>
+              <IoMdAdd className={style.groupAddBtn} onClick={addTodoAtGroup}/> 
+            </div>
+          ))
+        }
         {
           todos.length === 0 ? (
             <div className={style.emptyMessage}>할 일을 추가해보세요!</div>
