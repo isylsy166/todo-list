@@ -5,7 +5,6 @@ import { CaptureContext } from '../context/CaptureContext';
 import { IoCamera } from 'react-icons/io5';
 import { RiSettings4Fill } from 'react-icons/ri';
 import RightMenuBar from './RightMenuBar';
-import { GroupProvider } from '../context/GroupContext';
 
 export default function TodoFrame({children}) {
 
