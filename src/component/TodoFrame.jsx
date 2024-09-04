@@ -14,7 +14,7 @@ export default function TodoFrame({children}) {
   
 
   return (
-    <GroupProvider>
+    <>
       <div className={style.menuBar}>
           <IoCamera size={30} color='#a19e9e' onClick={handleCaptureClick} />
           <RiSettings4Fill size={30} className={style.icon_setting} onClick={() => setIsSetting((mode) => !mode)} />
@@ -26,7 +26,7 @@ export default function TodoFrame({children}) {
           </div>
       </div>
       <RightMenuBar isVisible={isSetting}/>
-    </GroupProvider>
+    </>
   )
 }
 

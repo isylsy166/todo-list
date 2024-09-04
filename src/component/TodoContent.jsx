@@ -9,12 +9,10 @@ import { IoMdAdd } from 'react-icons/io';
 export default function TodoContent() {
 
   const {conStatus} = useContext(StatusContext);
-  const [todos, setTodos] = useState(() => readTodosFromLocalStorage());
   const [filteredTodos, setFilteredTodos] = useState([]);
-  const {groups} = useContext(GroupContext);
+  const {todos, groups, addTodo, updateTodo, deleteTodo} = useContext(GroupContext);
+  const {todoInputShow, isShow} = useContext(GroupContext);
   const [selectGroup, setSelectGroup] = useState([]);
-
-  const [isTodoInputShow, setIsTodoInputShow] = useState(true);
   
   
   useEffect(()=>{
@@ -30,27 +28,24 @@ export default function TodoContent() {
       setFilteredTodos(todos); // 모든 상태를 보여줌
     }
 
-  },[ conStatus, todos ])
+  },[ conStatus, todos, groups ])
 
   const handleAdd = (todo) => {
     // 새로운 투두를 todos에 업데이터 해야한다
-    setTodos([...todos, todo]);
+    addTodo(todo);
   }
 
   const handleUpdate = (updated) => {
-    setTodos(todos.map((t) => (t.id === updated.id ? updated : t)))
+    updateTodo(updated);
   }
 
   const handleDelete = (deleted) => {
-    setTodos(todos.filter((t) => t.id !== deleted.id))
+    deleteTodo(deleted);
   }
 
   const addTodoAtGroup = (group) => {
-    setIsTodoInputShow((prev) => !prev);
+    isShow((prev) => !prev);
     setSelectGroup(group);
-    console.log(group);
-    console.log(!isTodoInputShow);
-    
   }
 
   return (
@@ -92,12 +87,8 @@ export default function TodoContent() {
           )
         }
       </div>
-      <TodoFooter onAdd={handleAdd} isShow={isTodoInputShow} group={selectGroup}/>
+      <TodoFooter onAdd={handleAdd} isShow={todoInputShow} group={selectGroup}/>
     </div>
   )
 }
 
-function readTodosFromLocalStorage(){
-  const todos = localStorage.getItem('todos');
-  return todos ? JSON.parse(todos) : [];
-}

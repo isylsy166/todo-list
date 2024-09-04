@@ -70,6 +70,11 @@
     color: var(--color-input-text);
   }
 
+  .groupWrap input{
+    width: 100px;
+    font-size: 15px;
+  }
+
   .groupIconWrap{
     display: flex;
     align-items: center;
@@ -77,4 +82,14 @@
     width: 41px;
     font-size: 15px;
     color: lightgray;
+  }
+
+  .emptyMessage{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #adadad;
+    font-size: 14px;
   }

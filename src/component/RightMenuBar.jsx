@@ -8,8 +8,9 @@ import { v4 as uuidv4 } from 'uuid';
 
 export default function RightMenuBar({ isVisible }) {
   const [text, setText] = useState('');
-  //const [groups, dispatch] = useReducer(groupReducer, initialGroups)
-  const {groups, addGroup, deleteGroup} = useContext(GroupContext);
+  const [editText, setEditText] = useState(''); // 수정 중인 그룹의 텍스트
+  const [editGroupId, setEditGroupId] = useState(''); // 수정 중인 그룹의 ID
+  const {groups, addGroup, updateGroup, deleteGroup, isShow} = useContext(GroupContext);
 
   useEffect(() => {
     localStorage.setItem('groups', JSON.stringify(groups));
@@ -25,9 +26,21 @@ export default function RightMenuBar({ isVisible }) {
     addGroup(newGroup);
   };
 
+  const handleGroupEdit = (group) => {
+    setEditGroupId(group.id);
+    setEditText(group.text);
+  };
+
+  const handleEditSubmit = (groupId) => {
+    updateGroup(groupId, editText);
+    setEditGroupId(''); // 수정 모드 비활성화
+  };
+
   const handleGroupDelete = (groupId) => {
     deleteGroup(groupId);
+    isShow(true);
   };
+
 
   return (
     <div className={`${style.frame} ${!isVisible ? style.slideOut : ''}`}>
@@ -44,16 +57,28 @@ export default function RightMenuBar({ isVisible }) {
         </div>
         <div className={style.groupBox}>
           {groups.length === 0 ? (
-            <div></div>
+            <div className={style.emptyMessage}>그룹을 추가해보세요!</div>
           ) : (
             groups.map((g) => (
               <div className={style.groupWrap} key={g.id}>
-                <input
-                  type="text"
-                  value={g.text}                
-                />
+                {editGroupId === g.id ? (
+                  <input
+                    type="text"
+                    value={editText}
+                    onChange={(e) => setEditText(e.target.value)}
+                    onBlur={() => handleEditSubmit(g.id)} // 인풋 필드에서 포커스를 잃으면 수정 내용 저장
+                    onKeyPress={(e) => {
+                      if (e.key === 'Enter') {
+                        handleEditSubmit(g.id);
+                      }
+                    }}
+                    autoFocus
+                  />
+                ) : (
+                  <p id={g.id}>{g.text}</p>
+                )}
                 <div className={style.groupIconWrap}>
-                  <FaPen />
+                  <FaPen onClick={() => handleGroupEdit(g)} />
                   <BiSolidTrashAlt onClick={() => handleGroupDelete(g.id)} />
                 </div>
               </div>
