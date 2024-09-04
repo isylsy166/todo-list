@@ -35,6 +35,11 @@
 }
 
 .groupBox{
+    border-bottom: 1px solid var(--color-group-frame);
+    padding: 12px 0px;
+}
+
+.groupTitleBox{
     display: flex;
     align-items: center;
     justify-content: space-between;

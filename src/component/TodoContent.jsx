@@ -12,6 +12,9 @@ export default function TodoContent() {
   const [todos, setTodos] = useState(() => readTodosFromLocalStorage());
   const [filteredTodos, setFilteredTodos] = useState([]);
   const {groups} = useContext(GroupContext);
+  const [selectGroup, setSelectGroup] = useState([]);
+
+  const [isTodoInputShow, setIsTodoInputShow] = useState(true);
   
   
   useEffect(()=>{
@@ -42,8 +45,12 @@ export default function TodoContent() {
     setTodos(todos.filter((t) => t.id !== deleted.id))
   }
 
-  const addTodoAtGroup = () => {
-
+  const addTodoAtGroup = (group) => {
+    setIsTodoInputShow((prev) => !prev);
+    setSelectGroup(group);
+    console.log(group);
+    console.log(!isTodoInputShow);
+    
   }
 
   return (
@@ -52,8 +59,22 @@ export default function TodoContent() {
         {
           groups.map((group) => (
             <div className={style.groupBox}>
+            <div className={style.groupTitleBox} key={group.id}>
               <h1>{group.text}</h1>
-              <IoMdAdd className={style.groupAddBtn} onClick={addTodoAtGroup}/> 
+              <IoMdAdd className={style.groupAddBtn} onClick={() => addTodoAtGroup(group)} />
+
+            </div>
+              {
+                filteredTodos
+                  .filter((todo) => todo.group === group.id)
+                  .map((todo) => (
+                    <TodoItem 
+                    key={todo.id} 
+                    todo={todo} 
+                    onUpdate={handleUpdate} 
+                    onDelete={handleDelete}/>
+                  ))
+              }
             </div>
           ))
         }
@@ -61,7 +82,7 @@ export default function TodoContent() {
           todos.length === 0 ? (
             <div className={style.emptyMessage}>할 일을 추가해보세요!</div>
           ) : (
-            filteredTodos.map((todo) => (
+            filteredTodos.filter((todo) => todo.group === 'default').map((todo) => (
               <TodoItem 
               key={todo.id} 
               todo={todo} 
@@ -71,7 +92,7 @@ export default function TodoContent() {
           )
         }
       </div>
-      <TodoFooter onAdd={handleAdd}/>
+      <TodoFooter onAdd={handleAdd} isShow={isTodoInputShow} group={selectGroup}/>
     </div>
   )
 }
