@@ -4,9 +4,14 @@
     background-color: var(--color-frame);
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
+    position: absolute;
+    top: 95%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: flex;
     justify-content: center;
-    animation: slideUp 0.6s forwards;
+    animation: slideUp 1s forwards;
+    transform-origin: bottom;
 }
 
 .groupFrame{
@@ -15,22 +20,29 @@
     background-color: var(--color-group-frame);
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
+    position: absolute;
+    top: 95%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: flex;
     justify-content: center;
-    animation: slideUp 0.6s forwards;
+    animation: slideUp 1s forwards;
+    transform-origin: bottom;
 }
 
 .slideDown{
-    animation: slideDown 0.5s forwards;
+    animation: slideDown 1.2s forwards;
 }
 
 @keyframes slideUp {
     from {
         height: 0;
         opacity: 0;
+        transform: translate(-50%, 30px);
         overflow: hidden;
       }
       to {
+        transform: translate(-50%, 1);
         height: 70px; /* 원하는 최종 높이 */
         opacity: 1;
       }
@@ -38,16 +50,16 @@
 
 @keyframes slideDown {
     0%{
-        transform: translateY(0); /* 원래 위치로 슬라이드 */
+        transform: translate(-50%, 1);
         height: 70px; /* 현재 높이 */
         opacity: 1;
-        visibility: visible;
       }
       100%{
+        transform: translate(-50%, 30px);
         height: 0;
         opacity: 0;
         overflow: hidden;
-        display: none;     
+        display: none;
       }
   }
 
