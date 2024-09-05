@@ -28,6 +28,7 @@
     justify-content: center;
     animation: slideUp 1s forwards;
     transform-origin: bottom;
+    display: none;
 }
 
 .slideDown{
@@ -42,9 +43,9 @@
         overflow: hidden;
       }
       to {
-        transform: translate(-50%, 1);
-        height: 70px; /* 원하는 최종 높이 */
-        opacity: 1;
+          opacity: 1;
+          height: 70px; /* 원하는 최종 높이 */
+          transform: translate(-50%, 1);
       }
   }
 
@@ -59,7 +60,7 @@
         height: 0;
         opacity: 0;
         overflow: hidden;
-        display: none;
+        /* display: none; */
       }
   }
 

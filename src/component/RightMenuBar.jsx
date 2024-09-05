@@ -17,6 +17,22 @@ export default function RightMenuBar({ isVisible }) {
     setText('');
   }, [groups]);
 
+  useEffect(()=>{
+    // style.frame의 속성의 display:none을 없애는 코드
+    const frameElement = document.querySelector(`.${style.frame}`);
+    if (frameElement) {
+      if (isVisible) {
+        frameElement.style.display = 'block';  // isVisible이 true면 표시
+        frameElement.classList.remove(style.slideOut);  // 슬라이드 아웃 클래스 제거
+      } else {
+        frameElement.classList.add(style.slideOut);  // 슬라이드 아웃 클래스 추가
+        setTimeout(() => {
+          frameElement.style.display = 'none';  // 애니메이션 후에 display none 적용
+        }, 300);  // 애니메이션 지속 시간에 맞춰 300ms 정도 딜레이
+      }
+    }
+  },[isVisible])
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if(text.trim().length === 0){
