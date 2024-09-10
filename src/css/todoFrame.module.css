@@ -31,3 +31,41 @@
     margin: 0px 15px;
     color:var(--color-selet-menu-text)
 }
+
+/* 작은 화면 (예: 태블릿) */
+@media (max-width: 768px) {
+    .frame {
+        width: 400px;
+        height: 550px;
+        border-radius: 1rem;
+        box-shadow: 4px 5px 5px 0 var(--color-box-shaodw);
+    }
+
+    .menuBar {
+        height: 50px;
+        padding: 0px 15px;
+    }
+
+    .icon_setting {
+        margin: 0px 10px;
+    }
+}
+
+/* 아주 작은 화면 (예: 스마트폰) */
+@media (max-width: 576px) {
+    .frame {
+        width: 300px;
+        height: 450px;
+        border-radius: 17px;
+        box-shadow: 3px 4px 4px 0 var(--color-box-shaodw);
+    }
+
+    .menuBar {
+        height: 45px;
+        padding: 0px 10px;
+    }
+
+    .icon_setting {
+        margin: 0px 8px;
+    }
+}

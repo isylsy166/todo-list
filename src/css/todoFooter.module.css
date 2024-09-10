@@ -60,7 +60,6 @@
         height: 0;
         opacity: 0;
         overflow: hidden;
-        /* display: none; */
       }
   }
 
@@ -87,4 +86,17 @@ input::placeholder{
 
 svg{
     cursor: pointer;
+}
+
+
+@media (max-width: 576px) {
+    .frame {
+        width: 300px;
+    }
+
+    input[type="text"]{
+        width: 221px;
+        font-size: 11px;
+    }
+
 }

@@ -63,3 +63,23 @@
       opacity: 1;
     }
   }
+
+  /* 아주 작은 화면 (예: 스마트폰) */
+@media (max-width: 576px) {
+    .frame {
+        width: 300px;
+    }
+
+    .themeicon{
+        top: 14px;
+        left: 15px;
+    }
+
+    .iconBox{
+        margin: 10px 0px;
+    }
+
+    .menuBox p{
+        font-size: 14px;
+    }
+}

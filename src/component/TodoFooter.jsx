@@ -5,10 +5,12 @@ import {v4 as uuidv4} from 'uuid'
 
 export default function TodoFooter({onAdd, isShow, group}) {
 
+  // 자연스러운 애니메이션을 위해 추가
   useEffect(()=>{
     const frameElement = document.querySelector(`.${st.groupFrame}`);
     if(frameElement){
       if(!isShow){
+        frameElement.classList.remove(st.slideDown); 
         frameElement.classList.add(st.slideUp); //위로 올라오면서
         frameElement.style.display = 'flex' //보임
       } else {

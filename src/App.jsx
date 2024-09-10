@@ -9,8 +9,6 @@ import { StatusProvider } from './context/StatusContext.jsx';
 
 function App() {
 
-
-
   return (
     <CaptureProvicer>
       <DarkmodeProvider>

@@ -49,3 +49,14 @@
     color: var(--color-group-add-btn);
     font-size: 20px;
 }
+
+/* 아주 작은 화면 (예: 스마트폰) */
+@media (max-width: 576px) {
+    .frame {
+
+    }
+
+    .emptyMessage{
+        font-size: 11px;
+    }
+}
