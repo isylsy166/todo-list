@@ -54,11 +54,13 @@ export default function TodoContent() {
         {
           groups.map((group) => (
             <div className={style.groupBox}>
-            <div className={style.groupTitleBox} key={group.id}>
-              <h1>{group.text}</h1>
-              <IoMdAdd className={style.groupAddBtn} onClick={() => addTodoAtGroup(group)} />
 
-            </div>
+              {/* 그룹이름 */}
+              <div className={style.groupTitleBox} key={group.id}>
+                <h1>{group.text}</h1>
+                <IoMdAdd className={style.groupAddBtn} onClick={() => addTodoAtGroup(group)} />
+              </div>
+
               {
                 filteredTodos
                   .filter((todo) => todo.group === group.id)

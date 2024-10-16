@@ -5,13 +5,13 @@
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
     position: absolute;
-    top: 95%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 87%;
+    /* left: 50%; */
     display: flex;
     justify-content: center;
+    /* transform: translate(-50%, -50%);
     animation: slideUp 1s forwards;
-    transform-origin: bottom;
+    transform-origin: bottom; */
 }
 
 .groupFrame{
@@ -21,14 +21,11 @@
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
     position: absolute;
-    top: 95%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 87%;
     display: flex;
     justify-content: center;
-    animation: slideUp 1s forwards;
-    transform-origin: bottom;
-    display: none;
+    /* animation: slideUp 1s forwards;
+    transform-origin: bottom; */
 }
 
 .slideDown{
