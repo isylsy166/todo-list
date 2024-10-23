@@ -89,6 +89,14 @@ svg{
 @media (max-width: 576px) {
     .frame {
         width: 300px;
+        height: 62px;
+        top: 84%;
+    }
+
+    .groupFrame {
+        width: 300px;
+        height: 62px;
+        top: 84%;
     }
 
     input[type="text"]{
